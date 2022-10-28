@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rock, Paper, Scissors.</title>
+
+</head>
+<body>
+    <script>
+       function getComputerChoice() {
+        const options = ["ROCK", "PAPER", "SCISSORS"];
+        let randomElement = options[Math.floor(Math.random() * options.length)];
+        return (randomElement);
+    }
+
+    function play(playerSelection, computerSelection) {
+        let player = playerSelection;
+        let computer = computerSelection;
+        
+        if (player === computer) {
+           return "It's a draw!";
+        }
+        else if (player === "SCISSORS" && computer === "ROCK") {
+            return "You Lose! Rock beats Scissors";
+        }
+        else if (player === "SCISSORS" && computer === "PAPER") {
+            return "You Win! Scissors beats Paper";
+        }
+        else if (player === "ROCK" && computer === "PAPER") {
+            return "You Lose! Paper beats Rock";
+        }
+        else if (player === "ROCK" && computer === "SCISSORS") {
+            return "You Win! Rock beats Scissors";
+        }
+        else if (player === "PAPER" && computer === "SCISSORS") {
+            return "You Lose! Scissors beats Paper";
+        }
+        else if (player === "PAPER" && computer === "ROCK") {
+            return "You Win! Paper beats Rock";
+        }
+    }
+
+    function game() {
+        let computerScore = 0;
+        let playerScore = 0;
+        
+
+        for (let i = 0; i < 5; i++) {
+            let result = play();
+
+            if (result === "It's a draw!") {
+                return console.log("It's a draw! Nobody gains a Point");
+            }
+            else if(result === "You Win! Scissors beats Paper" || result === "You Win! Rock beats Scissors" || result === "You Win! Paper beats Rock") {
+                playerScore++;
+                return console.log("Nice, you won a round!");
+            }
+            else {
+                computerScore++
+                return console.log("You lost! Sadge :(");
+            }
+
+        }
+
+        if (computerScore < playerScore) {
+            return console.log("You have lost this Game!")
+        }
+        else {
+            return console.log("You won this Game!")
+        }
+    }
+
+let testSign = getComputerChoice();
+console.log(play("ROCK", testSign));
+console.log(game);
+    </script>
+</body>
+</html>

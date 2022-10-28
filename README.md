@@ -1,2 +1,0 @@
-# rockPaperScissors-
-First Exercise 
